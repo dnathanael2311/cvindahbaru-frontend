@@ -18,7 +18,7 @@ const isLoading = ref(true)
 const fetchBarangMasuk = async () => {
   isLoading.value = true
   try {
-    const response = await axios.get('http://localhost:8000/api/barangmsk')
+    const response = await axios.get('https://cvindahbaru.com/api/api/barangmsk')
     console.log('Data barang masuk:', response.data)
     barangMasuk.value = response.data // <-- Perbaikan utama
   } catch (error) {

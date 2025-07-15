@@ -15,7 +15,7 @@ const isLoading = ref(true)
 const fetchRetur = async () => {
   isLoading.value = true
   try {
-    const response = await axios.get('http://localhost:8000/api/retur')
+    const response = await axios.get('https://cvindahbaru.com/api/api/retur')
     returList.value = response.data
   } catch (error) {
     console.error('Gagal memuat data retur:', error)

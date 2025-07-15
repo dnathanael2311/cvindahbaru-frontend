@@ -48,7 +48,7 @@ const nextStep = () => {
 // Ambil provinsi dari backend
 const getProvinsi = async () => {
   try {
-    const res = await axios.get('http://localhost:8000/api/rajaongkir/provinces')
+    const res = await axios.get('https://cvindahbaru.com/api/api/rajaongkir/provinces')
 console.log('DATA PROVINSI:', res.data)
 daftarProvinsi.value = res.data.data
 
@@ -71,7 +71,7 @@ daftarProvinsi.value = res.data.data
 const getKota = async () => {
   if (!provinsiId.value) return
   try {
-    const res = await axios.get(`http://localhost:8000/api/rajaongkir/cities/${provinsiId.value}`)
+    const res = await axios.get(`https://cvindahbaru.com/api/api/rajaongkir/cities/${provinsiId.value}`)
     if (Array.isArray(res.data?.data)) {
       daftarKota.value = res.data.data
     } else {
@@ -97,7 +97,7 @@ const register = async () => {
   try {
     const namaKota = daftarKota.value.find(k => k.city_id == kotaId.value)?.city_name || ''
 
-    await axios.post('http://localhost:8000/api/pelanggan/add', {
+    await axios.post('https://cvindahbaru.com/api/api/pelanggan/add', {
       nm_plg: nama.value,
       user_plg: username.value,
       email_plg: email.value,

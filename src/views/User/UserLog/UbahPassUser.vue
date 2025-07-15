@@ -26,7 +26,7 @@ const ubahPassword = async () => {
   }
 
   try {
-    await axios.post('http://localhost:8000/api/reset-password', {
+    await axios.post('https://cvindahbaru.com/api/api/reset-password', {
       token: token.value,
       password: newPassword.value
     })

@@ -13,12 +13,12 @@ const pelanggan = ref(null)
 
 const fetchKeranjang = async () => {
   try {
-    const res = await axios.get('http://localhost:8000/api/keranjang/get-by-pelanggan', {
+    const res = await axios.get('https://cvindahbaru.com/api/api/keranjang/get-by-pelanggan', {
       params: { id_plg: idPelanggan }
     })
     const id_krg = res.data.id_krg
 
-    const isi = await axios.get('http://localhost:8000/api/isikeranjang/by-keranjang', {
+    const isi = await axios.get('https://cvindahbaru.com/api/api/isikeranjang/by-keranjang', {
       params: { id_krg }
     })
 
@@ -37,7 +37,7 @@ const fetchKeranjang = async () => {
 
 const fetchPelanggan = async () => {
   try {
-    const res = await axios.get(`http://localhost:8000/api/pelanggan/${idPelanggan}`)
+    const res = await axios.get(`https://cvindahbaru.com/api/api/pelanggan/${idPelanggan}`)
     pelanggan.value = res.data
   } catch (err) {
     console.error('Gagal ambil data pelanggan:', err)
@@ -47,7 +47,7 @@ const fetchPelanggan = async () => {
 
 const fetchReward = async () => {
   try {
-    const res = await axios.get('http://localhost:8000/api/reward/latest', {
+    const res = await axios.get('https://cvindahbaru.com/api/api/reward/latest', {
       params: { id_plg: idPelanggan }
     })
     reward.value = res.data
@@ -70,7 +70,7 @@ const updateQty = async (item, change) => {
   await fetchOngkir()
 
   try {
-    await axios.post('http://localhost:8000/api/isikeranjang/update', {
+    await axios.post('https://cvindahbaru.com/api/api/isikeranjang/update', {
       id_krg: item.id_krg,
       id_brg: item.id_brg,
       krg_qty: newQty
@@ -83,7 +83,7 @@ const updateQty = async (item, change) => {
 const hapusItem = async (item) => {
   if (!confirm(`Hapus ${item.barang.nm_brg} dari keranjang?`)) return
   try {
-    await axios.post('http://localhost:8000/api/isikeranjang/delete', {
+    await axios.post('https://cvindahbaru.com/api/api/isikeranjang/delete', {
       id_krg: item.id_krg,
       id_brg: item.id_brg
     })
@@ -143,7 +143,7 @@ onMounted(() => {
             <tbody v-if="keranjangItems.length > 0" class="divide-y">
               <tr v-for="item in keranjangItems" :key="item.id_brg">
                 <td class="px-2 md:px-4 py-4">
-                  <img :src="`http://localhost:8000/storage/${item.barang.img}`" class="w-16 h-16 object-contain rounded-md" />
+                  <img :src="`https://cvindahbaru.com/api/storage/${item.barang.img}`" class="w-16 h-16 object-contain rounded-md" />
                 </td>
                 <td class="px-2 md:px-4 py-4">{{ item.barang.nm_brg }}</td>
                 <td class="px-2 md:px-4 py-4">

@@ -10,7 +10,7 @@ const invoiceData = ref(null)
 
 const fetchInvoice = async () => {
   try {
-    const res = await axios.get(`http://localhost:8000/api/checkout/invoice`, {
+    const res = await axios.get(`https://cvindahbaru.com/api/api/checkout/invoice`, {
       params: { id_checkout: idTransaksi }
     })
     invoiceData.value = res.data

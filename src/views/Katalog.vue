@@ -14,7 +14,7 @@ const kategoriDipilih = ref(null)
 // Ambil semua barang
 const getBarang = async () => {
   try {
-    const res = await axios.get('http://localhost:8000/api/barang')
+    const res = await axios.get('https://cvindahbaru.com/api/api/barang')
     barangList.value = res.data
     barangTampil.value = res.data
   } catch (e) {
@@ -35,9 +35,9 @@ const filterByKategori = (id_ktg) => {
 const getImageUrl = (filename) => {
   if (!filename) return '/default.jpg'
   if (filename.startsWith('gambar/')) {
-    return `http://localhost:8000/storage/${filename}`
+    return `https://cvindahbaru.com/api/storage/${filename}`
   }
-  return `http://localhost:8000/storage/gambar/${filename}`
+  return `https://cvindahbaru.com/api/storage/gambar/${filename}`
 }
 
 onMounted(() => {

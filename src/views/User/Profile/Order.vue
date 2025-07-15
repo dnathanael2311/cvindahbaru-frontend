@@ -8,7 +8,7 @@ const selectedOrder = ref(null)
 
 const fetchOrders = async () => {
   try {
-    const response = await axios.get('http://localhost:8000/api/order')
+    const response = await axios.get('https://cvindahbaru.com/api/api/order')
     console.log('Data dari API:', response.data) // 👈 Tambah ini
     orders.value = response.data
   } catch (error) {

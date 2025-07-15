@@ -18,7 +18,7 @@ const isLoading = ref(true)
 const fetchBarangKeluar = async () => {
   isLoading.value = true
   try {
-    const response = await axios.get('http://localhost:8000/api/barangklr') // Ganti dengan endpoint real kamu
+    const response = await axios.get('https://cvindahbaru.com/api/api/barangklr') // Ganti dengan endpoint real kamu
     console.log('Data barang keluar:', response.data)
     barangKeluar.value = response.data // Sesuaikan dengan struktur respons
   } catch (error) {

@@ -32,7 +32,7 @@ const resetPassword = async () => {
   loading.value = true
 
   try {
-    const res = await axios.post('http://localhost:8000/api/password/reset', {
+    const res = await axios.post('https://cvindahbaru.com/api/api/password/reset', {
       email: email,
       token: token,
       password: password.value,

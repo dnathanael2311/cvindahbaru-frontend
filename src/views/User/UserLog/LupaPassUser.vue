@@ -8,7 +8,7 @@ const errorMsg = ref('')
 
 const kirimLink = async () => {
   try {
-    await axios.post('http://localhost:8000/api/admin/password/forgot', { email: email.value })
+    await axios.post('https://cvindahbaru.com/api/api/admin/password/forgot', { email: email.value })
 
     successMsg.value = 'Link reset password telah dikirim ke email Anda.'
     errorMsg.value = ''

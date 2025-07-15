@@ -23,7 +23,7 @@ const kategoriList = ref([])
 
 const getKategori = async () => {
   try {
-    const res = await axios.get('http://localhost:8000/api/kategori')
+    const res = await axios.get('https://cvindahbaru.com/api/api/kategori')
     kategoriList.value = res.data
   } catch (error) {
     console.error('Gagal mengambil kategori:', error)
@@ -50,7 +50,7 @@ const submitForm = async () => {
       formData.append('img', form.value.img)
     }
 
-    await axios.post('http://localhost:8000/api/barang/add', formData, {
+    await axios.post('https://cvindahbaru.com/api/api/barang/add', formData, {
       headers: { 'Content-Type': 'multipart/form-data' }
     })
 

@@ -19,7 +19,7 @@ const total = computed(() => Number(detailOrder.value?.checkout?.ttl_harga || 0)
 
 const fetchDetail = async () => {
   try {
-    const res = await axios.get(`http://localhost:8000/api/order/${id}`)
+    const res = await axios.get(`https://cvindahbaru.com/api/api/order/${id}`)
     detailOrder.value = res.data
   } catch (err) {
     console.error('Gagal mengambil detail order:', err)

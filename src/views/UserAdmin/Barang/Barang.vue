@@ -16,7 +16,7 @@ const isLoading = ref(true)
 async function fetchBarang() {
   isLoading.value = true
   try {
-    const response = await axios.get('http://localhost:8000/api/barang')
+    const response = await axios.get('https://cvindahbaru.com/api/api/barang')
     barangList.value = response.data
   } catch (error) {
     console.error('Gagal ambil data barang:', error)
@@ -28,7 +28,7 @@ async function fetchBarang() {
 async function deleteBarang(id_brg) {
   if (confirm('Yakin ingin menghapus barang ini?')) {
     try {
-      await axios.post('http://localhost:8000/api/barang/delete', { id_brg })
+      await axios.post('https://cvindahbaru.com/api/api/barang/delete', { id_brg })
       alert('Barang berhasil dihapus.')
       await fetchBarang()
     } catch (error) {
@@ -47,9 +47,9 @@ onMounted(fetchBarang)
 const getImageUrl = (filename) => {
   if (!filename) return '/default.jpg'
   if (filename.startsWith('gambar/')) {
-    return `http://localhost:8000/storage/${filename}`
+    return `https://cvindahbaru.com/api/storage/${filename}`
   }
-  return `http://localhost:8000/storage/gambar/${filename}`
+  return `https://cvindahbaru.com/api/storage/gambar/${filename}`
 }
 </script>
 

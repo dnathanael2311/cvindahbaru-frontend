@@ -20,7 +20,7 @@ const namaPelanggan = ref('')
 
 const fetchPelanggan = async () => {
   try {
-    const res = await axios.get(`http://localhost:8000/api/pelanggan/${id_plg}`)
+    const res = await axios.get(`https://cvindahbaru.com/api/api/pelanggan/${id_plg}`)
     namaPelanggan.value = res.data.nm_plg
   } catch (error) {
     console.warn('Gagal ambil data pelanggan dari backend. Pakai data localStorage saja.')

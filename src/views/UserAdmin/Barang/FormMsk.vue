@@ -19,7 +19,7 @@ const deskripsi = ref('')
 // Ambil semua barang dari API Laravel
 const getBarang = async () => {
   try {
-    const res = await axios.get('http://localhost:8000/api/barangmsk/get-all-barang')
+    const res = await axios.get('https://cvindahbaru.com/api/api/barangmsk/get-all-barang')
     daftarBarang.value = res.data
   } catch (error) {
     console.error('Gagal mengambil data barang:', error)
@@ -29,7 +29,7 @@ const getBarang = async () => {
 // Ambil ekspedisi dari API Laravel
 const getEkspedisi = async () => {
   try {
-    const res = await axios.get('http://localhost:8000/api/expedisi')
+    const res = await axios.get('https://cvindahbaru.com/api/api/expedisi')
     daftarEkspedisi.value = res.data
   } catch (error) {
     console.error('Gagal mengambil data ekspedisi:', error)
@@ -54,7 +54,7 @@ const tambahBarangMasuk = async () => {
   }
 
   try {
-    const res = await axios.post('http://localhost:8000/api/barangmsk/add', {
+    const res = await axios.post('https://cvindahbaru.com/api/api/barangmsk/add', {
       id_brg: barangDipilih.value.id_brg,
       tgl_msk: tanggalMasuk.value,
       qty_msk: qty.value,

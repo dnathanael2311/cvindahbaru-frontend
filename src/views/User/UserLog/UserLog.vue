@@ -18,7 +18,7 @@ const login = async () => {
   }
 
   try {
-    const response = await axios.post('http://localhost:8000/api/pelanggan/login', {
+    const response = await axios.post('https://cvindahbaru.com/api/api/pelanggan/login', {
       user_plg: username.value,
       pass_plg: password.value,
     })

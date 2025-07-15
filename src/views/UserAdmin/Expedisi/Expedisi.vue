@@ -14,7 +14,7 @@ const goBack = () => router.back()
 const expedisiList = ref([])
 onMounted(async () => {
   try {
-    const res = await axios.get('http://localhost:8000/api/expedisi') // pastikan URL benar
+    const res = await axios.get('https://cvindahbaru.com/api/api/expedisi') // pastikan URL benar
     console.log('Data Expedisi:', res.data) // 👈 CEK DI CONSOLE
     expedisiList.value = res.data
   } catch (error) {

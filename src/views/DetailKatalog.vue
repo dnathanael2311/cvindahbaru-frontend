@@ -34,7 +34,7 @@ async function tambahKeKeranjang() {
   }
 
   try {
-    const res = await axios.post('http://localhost:8000/api/isikeranjang/add', {
+    const res = await axios.post('https://cvindahbaru.com/api/api/isikeranjang/add', {
       id_plg: idPelanggan,
       id_brg: barang.value.id_brg,
       qty: qty.value
@@ -49,7 +49,7 @@ async function tambahKeKeranjang() {
 onMounted(async () => {
   try {
     const id = route.params.id
-    const res = await axios.get('http://localhost:8000/api/barang/show', {
+    const res = await axios.get('https://cvindahbaru.com/api/api/barang/show', {
       params: { id_brg: id }
     })
     barang.value = res.data
@@ -69,7 +69,7 @@ onMounted(async () => {
     <div class="w-full md:w-1/2 p-4 sm:p-6 flex justify-center items-center bg-gray-50">
       <img
         v-if="barang?.img"
-        :src="`http://localhost:8000/storage/${barang.img}`"
+        :src="`https://cvindahbaru.com/api/storage/${barang.img}`"
         alt="Produk"
         class="w-full max-w-[280px] sm:max-w-md max-h-[240px] sm:max-h-[400px] object-contain rounded-lg shadow-md"
       />

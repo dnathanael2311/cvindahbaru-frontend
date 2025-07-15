@@ -16,7 +16,7 @@ const alasanRetur = reactive({})
 const fetchDetailOrder = async () => {
   isFetching.value = true
   try {
-    const res = await axios.get('http://localhost:8000/api/order/detail', {
+    const res = await axios.get('https://cvindahbaru.com/api/api/order/detail', {
       params: { id_order: idOrder }
     })
 
@@ -64,7 +64,7 @@ const ajukanRetur = async () => {
   isLoading.value = true
 
   try {
-    const { data: retur } = await axios.post('http://localhost:8000/api/retur/add', {
+    const { data: retur } = await axios.post('https://cvindahbaru.com/api/api/retur/add', {
       id_order: idOrder,
       tgl_rt: new Date().toISOString().slice(0, 10),
       st_retur: 'Diproses'
@@ -73,7 +73,7 @@ const ajukanRetur = async () => {
     const id_rt = retur.id_rt
 
     const detailPromises = barangDiretur.map(barang =>
-      axios.post('http://localhost:8000/api/detailretur/add', {
+      axios.post('https://cvindahbaru.com/api/api/detailretur/add', {
         id_rt,
         id_brg: barang.id_brg,
         qty_rt: barang.qty_rt,
@@ -136,7 +136,7 @@ onMounted(fetchDetailOrder)
             <tr v-for="item in daftarBarang" :key="item.id_brg" class="hover:bg-gray-50">
               <td class="px-2 sm:px-4 py-4">
                 <img
-                  :src="`http://localhost:8000/storage/${item.barang?.img}`"
+                  :src="`https://cvindahbaru.com/api/storage/${item.barang?.img}`"
                   alt="gambar"
                   class="w-16 h-16 object-contain rounded-md"
                 />

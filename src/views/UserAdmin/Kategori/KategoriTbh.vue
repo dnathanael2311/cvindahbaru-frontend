@@ -15,7 +15,7 @@ const tambahKategori = async () => {
   }
 
   try {
-    await axios.post('http://localhost:8000/api/kategori/add', {
+    await axios.post('https://cvindahbaru.com/api/api/kategori/add', {
       nm_ktg: namaKategori.value
     })
     alert('Kategori berhasil ditambahkan.')

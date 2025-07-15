@@ -38,7 +38,7 @@ onMounted(async () => {
   if (!id_plg) return
 
   try {
-    const res = await axios.get(`http://localhost:8000/api/pelanggan/${id_plg}`)
+    const res = await axios.get(`https://cvindahbaru.com/api/api/pelanggan/${id_plg}`)
     const data = res.data
 
     pelanggan.value = {
@@ -50,17 +50,17 @@ onMounted(async () => {
       kota_nama: ''
     }
 
-    await axios.get(`http://localhost:8000/api/rajaongkir/provinces`).then((provRes) => {
+    await axios.get(`https://cvindahbaru.com/api/api/rajaongkir/provinces`).then((provRes) => {
       let prov = provRes.data.data.find(p => p.id == parseInt(data.provinsi))
       pelanggan.value.provinsi_nama = prov.name
     })
 
-    await axios.get(`http://localhost:8000/api/rajaongkir/cities/${data.provinsi}`).then((kotaRes) => {
+    await axios.get(`https://cvindahbaru.com/api/api/rajaongkir/cities/${data.provinsi}`).then((kotaRes) => {
       let kota = kotaRes.data.data.find(k => k.id == parseInt(data.kota))
       pelanggan.value.kota_nama = kota.name
     })
 
-    const keranjangRes = await axios.get(`http://localhost:8000/api/isikeranjang/isi_keranjang?id_plg=${id_plg}`)
+    const keranjangRes = await axios.get(`https://cvindahbaru.com/api/api/isikeranjang/isi_keranjang?id_plg=${id_plg}`)
     const barang = keranjangRes.data
 
     isiKeranjang.value = barang.map(item => ({
@@ -75,7 +75,7 @@ onMounted(async () => {
     subtotal.value = isiKeranjang.value.reduce((sum, item) => sum + item.total, 0)
 
     // Ambil reward
-    const rewardRes = await axios.get(`http://localhost:8000/api/reward/latest`, {
+    const rewardRes = await axios.get(`https://cvindahbaru.com/api/api/reward/latest`, {
       params: { id_plg }
     })
     console.log(rewardRes)
@@ -97,13 +97,13 @@ const cekOngkir = async () => {
 
   try {
     const id_plg = localStorage.getItem('id_plg')
-    const resPelanggan = await axios.get(`http://localhost:8000/api/pelanggan/${id_plg}`)
+    const resPelanggan = await axios.get(`https://cvindahbaru.com/api/api/pelanggan/${id_plg}`)
     const data = resPelanggan.data
 
     const barangUtama = isiKeranjang.value[0]
     if (!barangUtama) return alert("Isi keranjang kosong.")
 
-    const response = await axios.get('http://localhost:8000/api/rajaongkir/cost', {
+    const response = await axios.get('https://cvindahbaru.com/api/api/rajaongkir/cost', {
       params: {
         origin: 512,
         destination: data.kota,
@@ -149,7 +149,7 @@ const bayarSekarang = async () => {
   const id_plg = localStorage.getItem('id_plg')
 
   try {
-    const response = await axios.post('http://localhost:8000/api/payment/midtrans/token', {
+    const response = await axios.post('https://cvindahbaru.com/api/api/payment/midtrans/token', {
       total: total.value,
       nama: pelanggan.value.nm_plg,
       email: pelanggan.value.email_plg,
@@ -241,7 +241,7 @@ const bayarSekarang = async () => {
             <tbody v-if="isiKeranjang.length > 0" class="divide-y">
               <tr v-for="(item, i) in isiKeranjang" :key="i" class="hover:bg-gray-50">
                 <td class="px-4 py-4">
-                  <img :src="`http://localhost:8000/storage/${item.gambar}`" class="w-14 h-14 object-cover rounded" />
+                  <img :src="`https://cvindahbaru.com/api/storage/${item.gambar}`" class="w-14 h-14 object-cover rounded" />
                 </td>
                 <td class="px-4 py-4">{{ item.nama_brg }}</td>
                 <td class="px-4 py-4">{{ item.qty }}</td>

@@ -29,7 +29,7 @@ const register = async () => {
   }
 
   try {
-    const res = await axios.post('http://localhost:8000/api/admin/add', {
+    const res = await axios.post('https://cvindahbaru.com/api/api/admin/add', {
       nm_adm: nama.value,
       user_adm: username.value,
       email_adm: email.value,

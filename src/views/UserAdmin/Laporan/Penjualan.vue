@@ -104,7 +104,7 @@ const buildChartData = (orders) => {
 
 const fetchOrder = async () => {
   try {
-    const res = await axios.get('http://localhost:8000/api/order')
+    const res = await axios.get('https://cvindahbaru.com/api/api/order')
     let data = res.data
 
     if (startDate.value && endDate.value) {

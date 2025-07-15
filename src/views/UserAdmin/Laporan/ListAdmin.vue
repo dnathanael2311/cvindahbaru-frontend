@@ -15,7 +15,7 @@ const isLoading = ref(true)
 async function fetchAdmin() {
   isLoading.value = true
   try {
-    const res = await axios.get('http://localhost:8000/api/admin')
+    const res = await axios.get('https://cvindahbaru.com/api/api/admin')
     adminList.value = res.data
   } catch (error) {
     console.error('Gagal ambil data admin:', error)
@@ -32,7 +32,7 @@ async function deleteAdmin(id_adm) {
 
   if (confirm('Yakin ingin menghapus admin ini?')) {
     try {
-      await axios.post('http://localhost:8000/api/admin/delete', { id_adm })
+      await axios.post('https://cvindahbaru.com/api/api/admin/delete', { id_adm })
       alert('Admin berhasil dihapus.')
       await fetchAdmin()
     } catch (error) {

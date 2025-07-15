@@ -11,7 +11,7 @@ const order = ref(null)
 
 const fetchOrder = async () => {
   try {
-    const response = await axios.get(`http://localhost:8000/api/order/${orderId}`)
+    const response = await axios.get(`https://cvindahbaru.com/api/api/order/${orderId}`)
     order.value = response.data
   } catch (error) {
     console.error('Gagal mengambil data detail order:', error)
@@ -101,7 +101,7 @@ onMounted(() => {
                 <tbody class="divide-y">
                   <tr v-for="(item, index) in order?.detailorder ?? []" :key="index" class="hover:bg-gray-50">
                     <td class="px-2 py-4">
-                      <img :src="`http://localhost:8000/storage/${item.barang?.img}`" alt="Gambar Barang" class="w-12 h-12 object-cover rounded">
+                      <img :src="`https://cvindahbaru.com/api/storage/${item.barang?.img}`" alt="Gambar Barang" class="w-12 h-12 object-cover rounded">
                     </td>
                     <td class="px-2 py-4 font-semibold text-yellow-500 text-base">
                       {{ item.barang?.nm_brg ?? '-' }}

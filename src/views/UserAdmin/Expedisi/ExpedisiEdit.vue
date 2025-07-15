@@ -16,7 +16,7 @@ const isSubmitting = ref(false)
 
 const fetchExpedisi = async () => {
   try {
-    const response = await axios.get('http://localhost:8000/api/expedisi') // Ambil semua expedisi
+    const response = await axios.get('https://cvindahbaru.com/api/api/expedisi') // Ambil semua expedisi
     const data = response.data.find(item => item.id_exp == id_exp)
 
     if (!data) {
@@ -44,7 +44,7 @@ const updateExpedisi = async () => {
       no_exp: no_exp.value,
       email_exp: email_exp.value
     }
-    await axios.post('http://localhost:8000/api/expedisi/update', payload)
+    await axios.post('https://cvindahbaru.com/api/api/expedisi/update', payload)
     router.push('/UserAdmin/Expedisi/Expedisi')
   } catch (err) {
     alert('Gagal update data')

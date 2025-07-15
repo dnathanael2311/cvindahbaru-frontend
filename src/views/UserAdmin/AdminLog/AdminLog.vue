@@ -19,7 +19,7 @@ const login = async () => {
   }
 
   try {
-    const response = await axios.post('http://localhost:8000/api/admin/login', {
+    const response = await axios.post('https://cvindahbaru.com/api/api/admin/login', {
       user_adm: username.value,
       pass_adm: password.value,
     })

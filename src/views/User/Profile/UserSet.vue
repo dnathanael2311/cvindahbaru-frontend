@@ -56,7 +56,7 @@ const onResize = () => updateScreen()
 
 const getProvinsi = async () => {
   try {
-    const res = await axios.get('http://localhost:8000/api/rajaongkir/provinces')
+    const res = await axios.get('https://cvindahbaru.com/api/api/rajaongkir/provinces')
     daftarProvinsi.value = res.data?.data || []
   } catch (err) {
     errorInfo.value = 'Gagal memuat data provinsi.'
@@ -66,7 +66,7 @@ const getProvinsi = async () => {
 const getKota = async () => {
   if (!provinsiId.value) return
   try {
-    const res = await axios.get(`http://localhost:8000/api/rajaongkir/cities/${provinsiId.value}`)
+    const res = await axios.get(`https://cvindahbaru.com/api/api/rajaongkir/cities/${provinsiId.value}`)
     daftarKota.value = res.data?.data || []
   } catch (err) {
     errorInfo.value = 'Gagal memuat data kota.'
@@ -100,7 +100,7 @@ onMounted(async () => {
   id_plg.value = id
 
   try {
-    const res = await axios.get(`http://localhost:8000/api/pelanggan/${id_plg.value}`)
+    const res = await axios.get(`https://cvindahbaru.com/api/api/pelanggan/${id_plg.value}`)
     nama.value = res.data.nm_plg || ''
     email.value = res.data.email_plg || ''
     telp.value = res.data.no_plg || ''
@@ -138,7 +138,7 @@ const simpanProfil = async () => {
       no_plg: telp.value
     }
 
-    await axios.post('http://localhost:8000/api/pelanggan/update', data)
+    await axios.post('https://cvindahbaru.com/api/api/pelanggan/update', data)
     successInfo.value = 'Data pribadi berhasil diperbarui.'
   } catch (e) {
     errorInfo.value = 'Gagal menyimpan data pribadi.'
@@ -165,7 +165,7 @@ const simpanPassword = async () => {
       pass_plg: newPassword.value
     }
 
-    await axios.put('http://localhost:8000/api/pelanggan/update', data)
+    await axios.put('https://cvindahbaru.com/api/api/pelanggan/update', data)
     successPwdInfo.value = 'Password berhasil diperbarui.'
     newPassword.value = ''
     confirmPassword.value = ''

@@ -13,7 +13,7 @@ const kirimLinkReset = async () => {
   errorMessage.value = ''
 
   try {
-    const res = await axios.post('http://localhost:8000/api/password/email', {
+    const res = await axios.post('https://cvindahbaru.com/api/api/password/email', {
       email: email.value
     })
 

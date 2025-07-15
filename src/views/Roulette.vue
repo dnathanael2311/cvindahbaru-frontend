@@ -54,7 +54,7 @@ async function onEnd() {
   result.value = `${hadiah.value} ${hadiah.jenis}`
 
   try {
-    await axios.post('http://localhost:8000/api/reward/add', {
+    await axios.post('https://cvindahbaru.com/api/api/reward/add', {
       id_plg,
       jenis_rwd: hadiah.jenis, // ⬅️ langsung "Ongkir" atau "Total"
       value_rwd: hadiah.value,
@@ -93,7 +93,7 @@ onMounted(async () => {
   }
 
   try {
-    const { data: pelanggan } = await axios.get(`http://localhost:8000/api/pelanggan/${id_plg}`)
+    const { data: pelanggan } = await axios.get(`https://cvindahbaru.com/api/api/pelanggan/${id_plg}`)
 
     const today = new Date()
     const birth = new Date(pelanggan.tgl_lahir)
@@ -104,7 +104,7 @@ onMounted(async () => {
       return
     }
 
-    const { data } = await axios.get('http://localhost:8000/api/reward/check-today', {
+    const { data } = await axios.get('https://cvindahbaru.com/api/api/reward/check-today', {
       params: { id_plg }
     })
 

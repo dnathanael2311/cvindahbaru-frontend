@@ -27,7 +27,7 @@ function handleClickOutside(event) {
 
 const fetchKategori = async () => {
   try {
-    const res = await axios.get('http://localhost:8000/api/kategori')
+    const res = await axios.get('https://cvindahbaru.com/api/api/kategori')
     kategoriList.value = res.data
   } catch (err) {
     console.error('Gagal ambil kategori:', err)

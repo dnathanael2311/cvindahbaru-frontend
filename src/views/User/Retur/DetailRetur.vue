@@ -16,14 +16,14 @@ const idTransaksi = ref('') // Akan menampilkan ID ORDER
 const fetchDetailRetur = async () => {
   try {
     // Ambil detail retur dan barang
-    const detailRes = await axios.get('http://localhost:8000/api/detailretur/byretur', {
+    const detailRes = await axios.get('https://cvindahbaru.com/api/api/detailretur/byretur', {
       params: { id_rt }
     })
     detailRetur.value = detailRes.data
     alasan.value = detailRetur.value[0]?.alasan || '-'
 
     // Ambil data retur + relasi order + checkout
-    const returRes = await axios.get('http://localhost:8000/api/retur/show', {
+    const returRes = await axios.get('https://cvindahbaru.com/api/api/retur/show', {
       params: { id_rt }
     })
 

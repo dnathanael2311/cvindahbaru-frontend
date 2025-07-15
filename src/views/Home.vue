@@ -10,7 +10,7 @@ const router = useRouter()
 
 const fetchTopProduk = async () => {
   try {
-    const res = await axios.get('http://localhost:8000/api/barang')
+    const res = await axios.get('https://cvindahbaru.com/api/api/barang')
     topBarang.value = res.data.slice(0, 5)
   } catch (error) {
     console.error('Gagal mengambil data barang:', error)
@@ -21,9 +21,9 @@ const fetchTopProduk = async () => {
 const getImageUrl = (filename) => {
   if (!filename) return '/default.jpg'
   if (filename.startsWith('gambar/')) {
-    return `http://localhost:8000/storage/${filename}`
+    return `https://cvindahbaru.com/api/storage/${filename}`
   }
-  return `http://localhost:8000/storage/gambar/${filename}`
+  return `https://cvindahbaru.com/api/storage/gambar/${filename}`
 }
 
 // Kategori tetap
@@ -45,7 +45,7 @@ onMounted(async () => {
   const rouletteFlagKey = `roulette_done_${todayKey}_${idPelanggan}`
 
   try {
-    const res = await axios.get(`http://localhost:8000/api/pelanggan/${idPelanggan}`)
+    const res = await axios.get(`https://cvindahbaru.com/api/api/pelanggan/${idPelanggan}`)
     const pelanggan = res.data
 
     const birthDate = new Date(pelanggan.tgl_lahir)
@@ -60,7 +60,7 @@ onMounted(async () => {
     if (localStorage.getItem(rouletteFlagKey)) return
 
     // ✅ Cek ke backend apakah reward sudah diklaim
-    const check = await axios.get(`http://localhost:8000/api/reward/check-today`, {
+    const check = await axios.get(`https://cvindahbaru.com/api/api/reward/check-today`, {
       params: { id_plg: idPelanggan }
     })
 

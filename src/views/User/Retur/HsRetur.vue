@@ -12,7 +12,7 @@ console.log('ID Pelanggan dari localStorage:', id_plg)
 const fetchRetur = async () => {
   try {
     // Ambil order berdasarkan id_plg
-    const ordersRes = await axios.get('http://localhost:8000/api/order', {
+    const ordersRes = await axios.get('https://cvindahbaru.com/api/api/order', {
       params: { id_plg }
     })
     const idOrders = ordersRes.data.map(order => order.id_order)
@@ -23,7 +23,7 @@ const fetchRetur = async () => {
     }
 
     // Ambil retur berdasarkan id_order
-    const returRes = await axios.get('http://localhost:8000/api/retur/by-orders', {
+    const returRes = await axios.get('https://cvindahbaru.com/api/api/retur/by-orders', {
   params: {
     id_orders: idOrders // ini array seperti [1,2,3]
   },

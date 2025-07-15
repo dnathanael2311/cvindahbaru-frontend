@@ -23,7 +23,7 @@ const fetchDetailRetur = async () => {
 
   isLoading.value = true
   try {
-    const { data: detailData } = await axios.get('http://localhost:8000/api/detailretur/byretur', {
+    const { data: detailData } = await axios.get('https://cvindahbaru.com/api/api/detailretur/byretur', {
       params: { id_rt: idRetur }
     })
     detailRetur.value = detailData
@@ -41,7 +41,7 @@ const updateStatusRetur = async (status) => {
   if (!idRetur) return showAlert('ID retur tidak tersedia.')
 
   try {
-    await axios.post('http://localhost:8000/api/retur/update', {
+    await axios.post('https://cvindahbaru.com/api/api/retur/update', {
       id_rt: idRetur,
       st_retur: status
     })

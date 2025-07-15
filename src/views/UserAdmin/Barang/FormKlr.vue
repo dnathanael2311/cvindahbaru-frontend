@@ -16,7 +16,7 @@ const deskripsi = ref('')
 // Ambil semua barang
 const getBarang = async () => {
   try {
-    const res = await axios.get('http://localhost:8000/api/barangmsk/get-all-barang')
+    const res = await axios.get('https://cvindahbaru.com/api/api/barangmsk/get-all-barang')
     daftarBarang.value = res.data
   } catch (err) {
     console.error('Gagal mengambil data barang:', err)
@@ -38,7 +38,7 @@ const tambahBarangKeluar = async () => {
   }
 
   try {
-    const res = await axios.post('http://localhost:8000/api/barangklr/add', {
+    const res = await axios.post('https://cvindahbaru.com/api/api/barangklr/add', {
       id_brg: barangDipilih.value.id_brg,
       qty_klr: qtyKeluar.value,
       tgl_klr: tglKeluar.value,

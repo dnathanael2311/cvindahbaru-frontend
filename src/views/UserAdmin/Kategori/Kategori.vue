@@ -14,7 +14,7 @@ const loading = ref(true)
 
 const fetchKategori = async () => {
   try {
-    const response = await axios.get('http://localhost:8000/api/kategori')
+    const response = await axios.get('https://cvindahbaru.com/api/api/kategori')
     kategoriList.value = response.data
   } catch (error) {
     console.error('Gagal fetch kategori:', error)
@@ -25,7 +25,7 @@ const fetchKategori = async () => {
 
 const deleteKategori = async (id_ktg) => {
   try {
-    await axios.post('http://localhost:8000/api/kategori/delete', { id_ktg })
+    await axios.post('https://cvindahbaru.com/api/api/kategori/delete', { id_ktg })
     kategoriList.value = kategoriList.value.filter(k => k.id_ktg !== id_ktg)
   } catch (error) {
     alert('Gagal hapus kategori.')

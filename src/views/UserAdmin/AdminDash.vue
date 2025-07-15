@@ -70,7 +70,7 @@ onMounted(async () => {
   if (section) scrollTo(section)
 
   try {
-    const res = await axios.get(`http://localhost:8000/api/admin/${id_adm.value}`)
+    const res = await axios.get(`https://cvindahbaru.com/api/api/admin/${id_adm.value}`)
     nama.value = res.data.nm_adm
     email.value = res.data.email_adm
     telp.value = res.data.no_adm
@@ -89,7 +89,7 @@ const simpanProfil = async () => {
       email_adm: email.value,
       no_adm: telp.value
     }
-    await axios.put('http://localhost:8000/api/admin/update', data)
+    await axios.put('https://cvindahbaru.com/api/api/admin/update', data)
     successInfo.value = 'Data pribadi berhasil diperbarui.'
     errorInfo.value = ''
   } catch {
@@ -110,7 +110,7 @@ const simpanPassword = async () => {
       id_adm: id_adm.value,
       pass_adm: newPassword.value
     }
-    await axios.put('http://localhost:8000/api/admin/update', data)
+    await axios.put('https://cvindahbaru.com/api/api/admin/update', data)
     successInfo.value = 'Password berhasil diperbarui.'
     errorInfo.value = ''
     newPassword.value = ''

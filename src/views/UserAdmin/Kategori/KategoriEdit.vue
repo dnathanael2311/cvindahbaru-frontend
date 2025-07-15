@@ -13,7 +13,7 @@ const loading = ref(true)
 
 const fetchKategori = async () => {
   try {
-    const response = await axios.get(`http://localhost:8000/api/kategori`) // Ambil semua
+    const response = await axios.get(`https://cvindahbaru.com/api/api/kategori`) // Ambil semua
     const data = response.data.find(item => item.id_ktg == id_ktg)
 
     if (!data) {
@@ -32,7 +32,7 @@ const fetchKategori = async () => {
 
 const updateKategori = async () => {
   try {
-    await axios.post(`http://localhost:8000/api/kategori/update`, {
+    await axios.post(`https://cvindahbaru.com/api/api/kategori/update`, {
       id_ktg,
       nm_ktg: namaKategori.value
     })

@@ -27,7 +27,7 @@ const kategoriList = ref([])
 
 const getKategori = async () => {
   try {
-    const res = await axios.get('http://localhost:8000/api/kategori')
+    const res = await axios.get('https://cvindahbaru.com/api/api/kategori')
     kategoriList.value = res.data
   } catch (err) {
     console.error('Gagal ambil kategori:', err)
@@ -39,7 +39,7 @@ const getDetailBarang = async () => {
     const id = route.query.id_brg
     if (!id) return
 
-    const res = await axios.get('http://localhost:8000/api/barang/show', {
+    const res = await axios.get('https://cvindahbaru.com/api/api/barang/show', {
       params: { id_brg: id }
     })
 
@@ -75,7 +75,7 @@ const updateBarang = async () => {
       formData.append('img', form.value.img)
     }
 
-    await axios.post('http://localhost:8000/api/barang/update', formData, {
+    await axios.post('https://cvindahbaru.com/api/api/barang/update', formData, {
       headers: { 'Content-Type': 'multipart/form-data' }
     })
 

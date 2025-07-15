@@ -17,7 +17,7 @@ const tambahExpedisi = async () => {
   }
 
   try {
-    const res = await axios.post('http://localhost:8000/api/expedisi/add', {
+    const res = await axios.post('https://cvindahbaru.com/api/api/expedisi/add', {
       nm_exp: nama.value,
       no_exp: telepon.value,
       email_exp: email.value
